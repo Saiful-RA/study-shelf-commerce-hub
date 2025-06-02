@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { StudentLayout } from "@/components/student/StudentLayout";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Homepage } from "@/pages/student/Homepage";
+import { StudentLogin } from "@/pages/student/StudentLogin";
 import { AdminLogin } from "@/pages/admin/AdminLogin";
 import { AdminDashboard } from "@/pages/admin/AdminDashboard";
 import NotFound from "./pages/NotFound";
@@ -31,6 +32,11 @@ const App = () => (
               <Route path="checkout" element={<div>Checkout (Coming Soon)</div>} />
               <Route path="search" element={<div>Search (Coming Soon)</div>} />
             </Route>
+
+            {/* Auth Routes */}
+            <Route path="/login" element={<StudentLogin />} />
+            <Route path="/register" element={<div>Student Registration (Coming Soon)</div>} />
+            <Route path="/forgot-password" element={<div>Forgot Password (Coming Soon)</div>} />
 
             {/* Admin Routes */}
             <Route path="/admin/login" element={<AdminLogin />} />

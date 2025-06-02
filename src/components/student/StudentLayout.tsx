@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Badge } from '@/components/ui/badge';
-import { Home, BookOpen, Search, ShoppingCart } from 'lucide-react';
+import { Home, BookOpen, Search, ShoppingCart, User } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home },
@@ -59,6 +60,12 @@ export const StudentLayout: React.FC = () => {
             {/* Actions */}
             <div className="flex items-center space-x-4">
               <ThemeToggle />
+              <Button variant="ghost" size="sm" asChild>
+                <Link to="/login" className="flex items-center space-x-2">
+                  <User className="h-4 w-4" />
+                  <span className="hidden sm:inline">Login</span>
+                </Link>
+              </Button>
               <Button variant="outline" size="sm">
                 My Orders
               </Button>
