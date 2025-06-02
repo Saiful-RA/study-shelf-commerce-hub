@@ -1,16 +1,15 @@
-
 import React from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { Badge } from '@/components/ui/badge';
-import { Home, BookOpen, Search, Cart } from 'lucide-react';
+import { Home, BookOpen, Search, ShoppingCart } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home },
   { name: 'Catalog', href: '/catalog', icon: BookOpen },
   { name: 'Search', href: '/search', icon: Search },
-  { name: 'Cart', href: '/cart', icon: Cart },
+  { name: 'Cart', href: '/cart', icon: ShoppingCart },
 ];
 
 export const StudentLayout: React.FC = () => {
