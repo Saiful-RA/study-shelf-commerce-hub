@@ -11,6 +11,7 @@ import { Homepage } from "@/pages/student/Homepage";
 import { StudentLogin } from "@/pages/student/StudentLogin";
 import { AdminLogin } from "@/pages/admin/AdminLogin";
 import { AdminDashboard } from "@/pages/admin/AdminDashboard";
+import { BookManagement } from "@/pages/admin/BookManagement";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
