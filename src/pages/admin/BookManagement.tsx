@@ -28,7 +28,7 @@ export const BookManagement: React.FC = () => {
     price: '',
     description: '',
     category: '',
-    imageUrl: '',
+    coverImage: '',
     stock: Object.fromEntries(mockBranches.map(branch => [branch.id, 0]))
   });
 
@@ -50,7 +50,7 @@ export const BookManagement: React.FC = () => {
       price: parseFloat(newBook.price),
       description: newBook.description,
       category: newBook.category,
-      imageUrl: newBook.imageUrl || '/placeholder.svg',
+      coverImage: newBook.coverImage || '/placeholder.svg',
       stock: newBook.stock
     };
     
@@ -62,7 +62,7 @@ export const BookManagement: React.FC = () => {
       price: '',
       description: '',
       category: '',
-      imageUrl: '',
+      coverImage: '',
       stock: Object.fromEntries(mockBranches.map(branch => [branch.id, 0]))
     });
     setIsAddDialogOpen(false);
@@ -169,11 +169,11 @@ export const BookManagement: React.FC = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="imageUrl">Image URL</Label>
+                <Label htmlFor="coverImage">Cover Image URL</Label>
                 <Input
-                  id="imageUrl"
-                  value={newBook.imageUrl}
-                  onChange={(e) => setNewBook({ ...newBook, imageUrl: e.target.value })}
+                  id="coverImage"
+                  value={newBook.coverImage}
+                  onChange={(e) => setNewBook({ ...newBook, coverImage: e.target.value })}
                 />
               </div>
               <div className="space-y-2">
@@ -261,7 +261,7 @@ export const BookManagement: React.FC = () => {
                     <TableCell>
                       <div className="flex items-center space-x-3">
                         <img
-                          src={book.imageUrl}
+                          src={book.coverImage}
                           alt={book.title}
                           className="w-12 h-16 object-cover rounded"
                         />
