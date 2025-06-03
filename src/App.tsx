@@ -12,6 +12,10 @@ import { StudentLogin } from "@/pages/student/StudentLogin";
 import { AdminLogin } from "@/pages/admin/AdminLogin";
 import { AdminDashboard } from "@/pages/admin/AdminDashboard";
 import { BookManagement } from "@/pages/admin/BookManagement";
+import { InventoryManagement } from "@/pages/admin/InventoryManagement";
+import { OrderManagement } from "@/pages/admin/OrderManagement";
+import { BranchManagement } from "@/pages/admin/BranchManagement";
+import { StudentLogs } from "@/pages/admin/StudentLogs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,11 +47,11 @@ const App = () => (
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="dashboard" element={<AdminDashboard />} />
-              <Route path="books" element={<div>Book Management (Coming Soon)</div>} />
-              <Route path="inventory" element={<div>Inventory Management (Coming Soon)</div>} />
-              <Route path="orders" element={<div>Order Management (Coming Soon)</div>} />
-              <Route path="branches" element={<div>Branch Management (Coming Soon)</div>} />
-              <Route path="students" element={<div>Student Logs (Coming Soon)</div>} />
+              <Route path="books" element={<BookManagement />} />
+              <Route path="inventory" element={<InventoryManagement />} />
+              <Route path="orders" element={<OrderManagement />} />
+              <Route path="branches" element={<BranchManagement />} />
+              <Route path="students" element={<StudentLogs />} />
             </Route>
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
