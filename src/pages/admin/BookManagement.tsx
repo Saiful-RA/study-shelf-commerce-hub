@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 import { mockBooks, mockBranches } from '@/data/mockData';
 import { Book } from '@/types';
-import { Plus, Pencil, Trash2, Package } from 'lucide-react';
+import { Plus, Pencil, Trash2, Package, Upload } from 'lucide-react';
 
 export const BookManagement: React.FC = () => {
   const [books, setBooks] = useState<Book[]>(mockBooks);
@@ -40,6 +39,22 @@ export const BookManagement: React.FC = () => {
     const matchesCategory = categoryFilter === 'all' || book.category === categoryFilter;
     return matchesSearch && matchesCategory;
   });
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>, isEdit = false) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const imageUrl = e.target?.result as string;
+        if (isEdit && editingBook) {
+          setEditingBook({ ...editingBook, coverImage: imageUrl });
+        } else {
+          setNewBook({ ...newBook, coverImage: imageUrl });
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const handleAddBook = () => {
     const book: Book = {
@@ -169,12 +184,36 @@ export const BookManagement: React.FC = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="coverImage">Cover Image URL</Label>
-                <Input
-                  id="coverImage"
-                  value={newBook.coverImage}
-                  onChange={(e) => setNewBook({ ...newBook, coverImage: e.target.value })}
-                />
+                <Label>Cover Image</Label>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4">
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => handleImageUpload(e)}
+                      className="flex-1"
+                    />
+                    <Button type="button" variant="outline" size="sm">
+                      <Upload className="h-4 w-4 mr-2" />
+                      Upload
+                    </Button>
+                  </div>
+                  <div className="text-sm text-muted-foreground">Or enter image URL:</div>
+                  <Input
+                    placeholder="https://example.com/image.jpg"
+                    value={newBook.coverImage}
+                    onChange={(e) => setNewBook({ ...newBook, coverImage: e.target.value })}
+                  />
+                  {newBook.coverImage && (
+                    <div className="flex justify-center">
+                      <img
+                        src={newBook.coverImage}
+                        alt="Cover preview"
+                        className="w-24 h-32 object-cover rounded border"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="space-y-2">
                 <Label>Stock by Branch</Label>
@@ -386,6 +425,38 @@ export const BookManagement: React.FC = () => {
                   value={editingBook.description}
                   onChange={(e) => setEditingBook({ ...editingBook, description: e.target.value })}
                 />
+              </div>
+              <div className="space-y-2">
+                <Label>Cover Image</Label>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-4">
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => handleImageUpload(e, true)}
+                      className="flex-1"
+                    />
+                    <Button type="button" variant="outline" size="sm">
+                      <Upload className="h-4 w-4 mr-2" />
+                      Upload
+                    </Button>
+                  </div>
+                  <div className="text-sm text-muted-foreground">Or enter image URL:</div>
+                  <Input
+                    placeholder="https://example.com/image.jpg"
+                    value={editingBook.coverImage}
+                    onChange={(e) => setEditingBook({ ...editingBook, coverImage: e.target.value })}
+                  />
+                  {editingBook.coverImage && (
+                    <div className="flex justify-center">
+                      <img
+                        src={editingBook.coverImage}
+                        alt="Cover preview"
+                        className="w-24 h-32 object-cover rounded border"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="space-y-2">
                 <Label>Stock by Branch</Label>
