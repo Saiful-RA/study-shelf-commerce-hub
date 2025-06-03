@@ -8,7 +8,11 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { StudentLayout } from "@/components/student/StudentLayout";
 import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Homepage } from "@/pages/student/Homepage";
+import { BookCatalog } from "@/pages/student/BookCatalog";
+import { Search } from "@/pages/student/Search";
+import { ShoppingCart } from "@/pages/student/ShoppingCart";
 import { StudentLogin } from "@/pages/student/StudentLogin";
+import { StudentRegistration } from "@/pages/student/StudentRegistration";
 import { AdminLogin } from "@/pages/admin/AdminLogin";
 import { AdminDashboard } from "@/pages/admin/AdminDashboard";
 import { BookManagement } from "@/pages/admin/BookManagement";
@@ -31,16 +35,16 @@ const App = () => (
             {/* Student Routes */}
             <Route path="/" element={<StudentLayout />}>
               <Route index element={<Homepage />} />
-              <Route path="catalog" element={<div>Book Catalog (Coming Soon)</div>} />
+              <Route path="catalog" element={<BookCatalog />} />
               <Route path="book/:id" element={<div>Book Details (Coming Soon)</div>} />
-              <Route path="cart" element={<div>Shopping Cart (Coming Soon)</div>} />
+              <Route path="cart" element={<ShoppingCart />} />
               <Route path="checkout" element={<div>Checkout (Coming Soon)</div>} />
-              <Route path="search" element={<div>Search (Coming Soon)</div>} />
+              <Route path="search" element={<Search />} />
             </Route>
 
             {/* Auth Routes */}
             <Route path="/login" element={<StudentLogin />} />
-            <Route path="/register" element={<div>Student Registration (Coming Soon)</div>} />
+            <Route path="/register" element={<StudentRegistration />} />
             <Route path="/forgot-password" element={<div>Forgot Password (Coming Soon)</div>} />
 
             {/* Admin Routes */}
