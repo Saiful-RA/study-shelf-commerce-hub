@@ -3,7 +3,7 @@ import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
-import { ShoppingCart, Search, User, Shield } from 'lucide-react';
+import { ShoppingCart, Search, User } from 'lucide-react';
 
 export const StudentLayout: React.FC = () => {
   return (
@@ -45,13 +45,6 @@ export const StudentLayout: React.FC = () => {
                 <Link to="/login">
                   <User className="h-4 w-4 mr-2" />
                   Login
-                </Link>
-              </Button>
-
-              <Button variant="outline" size="sm" asChild>
-                <Link to="/admin/login">
-                  <Shield className="h-4 w-4 mr-2" />
-                  Admin
                 </Link>
               </Button>
 

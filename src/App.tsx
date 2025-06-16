@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -21,6 +20,7 @@ import { OrderManagement } from "@/pages/admin/OrderManagement";
 import { BranchManagement } from "@/pages/admin/BranchManagement";
 import { StudentLogs } from "@/pages/admin/StudentLogs";
 import NotFound from "./pages/NotFound";
+import { LoginChoice } from "@/pages/student/LoginChoice";
 
 const queryClient = new QueryClient();
 
@@ -43,7 +43,8 @@ const App = () => (
             </Route>
 
             {/* Auth Routes */}
-            <Route path="/login" element={<StudentLogin />} />
+            <Route path="/login" element={<LoginChoice />} />
+            <Route path="/student/login" element={<StudentLogin />} />
             <Route path="/register" element={<StudentRegistration />} />
             <Route path="/forgot-password" element={<div>Forgot Password (Coming Soon)</div>} />
 
