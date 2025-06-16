@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,7 +21,7 @@ import { OrderManagement } from "@/pages/admin/OrderManagement";
 import { BranchManagement } from "@/pages/admin/BranchManagement";
 import { StudentLogs } from "@/pages/admin/StudentLogs";
 import NotFound from "./pages/NotFound";
-import { LoginChoice } from "@/pages/student/LoginChoice";
+import { LoginChoice } from "@/pages/LoginChoice";
 
 const queryClient = new QueryClient();
 
